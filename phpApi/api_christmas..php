@@ -5,7 +5,7 @@ $date = strtotime("now");
 //get how many sec to christmas   from  now.
 $secTochristmas = strtotime($christmas) - $date;
 $secInDay = 86400;
-$secInHour = 1440;
+$secInHour = 3600;
 $secInMin = 60;
 //get it in more  detials
 $days = (int)($secTochristmas / $secInDay);
