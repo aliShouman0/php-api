@@ -1,4 +1,6 @@
 <?php
+header("Access-Control-Allow-Origin: http://127.0.0.1:5500 ");
+
 //get how many sec to christmas   from  since January 1 1970 00:00:00 GMT.
 $christmas = date('Y-12-25');
 $date = strtotime("now");
@@ -16,6 +18,6 @@ $results = [
   "days" => $days,
   "hour" => $hour,
   "min" => $min,
-  "sec" => $sec
+  "seconds" => $sec,
 ];
 echo json_encode($results);

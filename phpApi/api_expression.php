@@ -1,4 +1,6 @@
 <?php
+header("Access-Control-Allow-Origin: http://127.0.0.1:5500 ");
+
 if (isset($_POST['a']) && isset($_POST['b']) && isset($_POST['c'])) {
 
   $a = $_POST['a'];
@@ -10,5 +12,5 @@ if (isset($_POST['a']) && isset($_POST['b']) && isset($_POST['c'])) {
   ];
   echo json_encode($results);
 } else {
-  echo "error";
+  echo  json_encode("error");
 }
