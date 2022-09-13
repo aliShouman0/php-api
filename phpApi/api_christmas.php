@@ -1,4 +1,5 @@
 <?php
+//to give permission to other server to sent request by js example
 header("Access-Control-Allow-Origin: http://127.0.0.1:5500 ");
 
 //get how many sec to christmas   from  since January 1 1970 00:00:00 GMT.

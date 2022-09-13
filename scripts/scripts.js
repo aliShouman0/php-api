@@ -54,6 +54,7 @@ palindrome_btn.addEventListener("click", () => {
     fetch(palindrome_api + string).then((res) => {
       if (res.ok) {
         res.json().then((data) => {
+          //res will be as boolean
           let res = data.isPalindrome;
           isPalindrome.textContent = res ? "Palindrome" : "Not Palindrome";
         });
@@ -70,12 +71,15 @@ expression_btn.addEventListener("click", () => {
   let bValue = b.valueAsNumber;
   let cValue = c.valueAsNumber;
   if (aValue != "" && bValue != "" && cValue != "") {
-    console.log(aValue, bValue, cValue);
+    //to sent the post data in body
+    let postData = new FormData();
+    postData.append("a", aValue);
+    postData.append("b", bValue);
+    postData.append("c", cValue);
     fetch(expression_api, {
       method: "POST",
-      body: JSON.stringify({ a: aValue, b: bValue, c: cValue }),
+      body: postData,
     }).then((res) => {
-      console.log(res);
       if (res.ok) {
         res
           .json()
@@ -96,12 +100,15 @@ expression_btn.addEventListener("click", () => {
 //password strong
 password_btn.addEventListener("click", () => {
   let passwordValue = password.value;
+  whyNot.textContent = "";
   if (passwordValue != "") {
+    //to sent the post data
+    let postData = new FormData();
+    postData.append("password", passwordValue);
     fetch(password_api, {
       method: "POST",
-      body: JSON.stringify({ password: passwordValue }),
+      body: postData,
     }).then((res) => {
-      console.log(res);
       if (res.ok) {
         res
           .json()
@@ -115,6 +122,7 @@ password_btn.addEventListener("click", () => {
           })
           .catch((err) => {
             console.log("caught it!", err);
+            whyNot.textContent = "some went wrong";
           });
       } else {
         expressionResult.textContent = `some went wrong`;
